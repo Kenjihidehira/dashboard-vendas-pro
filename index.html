@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Vendas Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <strong>SalesPulse</strong>
+    <nav>
+      <a href="#visao">Visão geral</a>
+      <a href="#metas">Metas</a>
+      <a href="#pedidos">Pedidos</a>
+    </nav>
+    <button id="themeBtn">Alternar tema</button>
+  </aside>
+
+  <main class="dashboard">
+    <header class="topbar" id="visao">
+      <div>
+        <p class="eyebrow">Dashboard avançado</p>
+        <h1>Performance comercial</h1>
+        <p>Acompanhe faturamento, canais, equipes, produtos e metas em uma interface feita com JavaScript puro.</p>
+      </div>
+      <button id="exportBtn">Exportar CSV</button>
+    </header>
+
+    <section class="filters">
+      <label>
+        Período
+        <select id="periodFilter">
+          <option value="all">Todo período</option>
+          <option value="30">Últimos 30 dias</option>
+          <option value="15">Últimos 15 dias</option>
+          <option value="7">Últimos 7 dias</option>
+        </select>
+      </label>
+      <label>
+        Canal
+        <select id="channelFilter">
+          <option value="all">Todos</option>
+        </select>
+      </label>
+      <label>
+        Equipe
+        <select id="teamFilter">
+          <option value="all">Todas</option>
+        </select>
+      </label>
+      <label>
+        Busca
+        <input id="searchInput" type="search" placeholder="Produto ou cliente" />
+      </label>
+    </section>
+
+    <section class="kpis" id="kpis"></section>
+
+    <section class="grid">
+      <article class="card chart-card">
+        <div class="card-title">
+          <div>
+            <p class="eyebrow">Receita</p>
+            <h2>Vendas por dia</h2>
+          </div>
+          <span id="bestDay"></span>
+        </div>
+        <div class="bar-chart" id="barChart"></div>
+      </article>
+
+      <article class="card" id="metas">
+        <div class="card-title">
+          <div>
+            <p class="eyebrow">Metas</p>
+            <h2>Progresso mensal</h2>
+          </div>
+        </div>
+        <div class="goals" id="goals"></div>
+      </article>
+    </section>
+
+    <section class="card" id="pedidos">
+      <div class="card-title">
+        <div>
+          <p class="eyebrow">Operação</p>
+          <h2>Pedidos recentes</h2>
+        </div>
+        <span id="orderCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Produto</th>
+              <th>Canal</th>
+              <th>Equipe</th>
+              <th>Status</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
